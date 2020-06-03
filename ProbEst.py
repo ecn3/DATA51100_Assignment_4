@@ -7,10 +7,16 @@
 import pandas as pd
 from pandas import DataFrame
 
-# TODO load in 'cars.csv' into DataFrame
+# load in 'cars.csv' into DataFrame
+cars_dataframe = pd.read_csv('cars.csv')
+
+# Tester code to be deleted
+print(cars_dataframe)
+
 
 # TODO for each aspiration: 
-# TODO compute condtional probabilityof that aspiration given each of the makes P(aspirtation = a|model = m)
+# TODO compute condtional probability of that aspiration given each of the makes P(aspirtation = a|model = m)
+
 
 # TODO print condtional probabilites
 
