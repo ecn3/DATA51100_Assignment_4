@@ -7,6 +7,9 @@
 import pandas as pd
 from pandas import DataFrame
 
+# Formats
+fm1 = "Prob(aspiration={}|make={}) = {z:.2f}%"
+
 # load in 'cars.csv' into DataFrame
 cars_dataframe = pd.read_csv('cars.csv')
 
@@ -18,9 +21,25 @@ def compute_conditional_probability(make, aspiration):
     make_count = float(len((cars_dataframe[cars_dataframe.make == make])))
     # Calculate conditional probability
     conditional_probability = (number_instances / make_count)
-    # Return condition probability
-    return conditional_probability
+    # Return condition probability as percentage
+    return (conditional_probability * 100)
 
 conditional_probability = compute_conditional_probability('audi','std')
 
-print(conditional_probability)
+# Get the unique makes and aspirations
+makes = cars_dataframe.make.unique()
+aspirations = cars_dataframe.aspiration.unique()
+
+# Output
+# Header info
+print("DATA-51100, SUMMER 2020")
+print("Christian Nelson")
+print("PROGRAMMING ASSIGNMENT #4\n")
+
+# Iterate over each aspiration calculate cond prob of each make
+for x in makes:
+    for y in aspirations:
+        conditional_probability = compute_conditional_probability(x,y)
+        # Print conditional probabilities to the screen
+        print(fm1.format(y,x,z=conditional_probability))
+
