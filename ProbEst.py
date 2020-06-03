@@ -10,15 +10,17 @@ from pandas import DataFrame
 # load in 'cars.csv' into DataFrame
 cars_dataframe = pd.read_csv('cars.csv')
 
-# Tester code to be deleted
-print(cars_dataframe)
+# Function for computing conditional probability
+def compute_conditional_probability(make, aspiration):
+    # Get number of instances of aspiration given make cast to float for division
+    number_instances = float(len(cars_dataframe[(cars_dataframe.make == make) & (cars_dataframe.aspiration == aspiration)]))
+    # Get total number of instances of make
+    make_count = float(len((cars_dataframe[cars_dataframe.make == make])))
+    # Calculate conditional probability
+    conditional_probability = (number_instances / make_count)
+    # Return condition probability
+    return conditional_probability
 
+conditional_probability = compute_conditional_probability('audi','std')
 
-# TODO for each aspiration: 
-# TODO compute condtional probability of that aspiration given each of the makes P(aspirtation = a|model = m)
-
-
-# TODO print condtional probabilites
-
-# TODO compute probability of each make
-# TODO print above
+print(conditional_probability)
