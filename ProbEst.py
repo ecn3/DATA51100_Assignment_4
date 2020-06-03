@@ -14,9 +14,6 @@ fm2 = "Prob(make={}) = {j:.2f}%"
 # load in 'cars.csv' into DataFrame
 cars_dataframe = pd.read_csv('cars.csv')
 
-# Get total number of instances
-instances_count = float(len(cars_dataframe))
-
 # Function for computing conditional probability
 def compute_conditional_probability(make, aspiration):
     # Get number of instances of aspiration given make cast to float for division
@@ -32,6 +29,8 @@ def compute_conditional_probability(make, aspiration):
 def compute_make_probability(make):
     # Get total number of instances of make
     make_count = float(len((cars_dataframe[cars_dataframe.make == make])))
+    # Get total number of instances of the dataframe
+    instances_count = float(len(cars_dataframe))
     # Calculate probability
     make_probability = (make_count / instances_count)
     # Return condition probability as percentage
@@ -43,19 +42,20 @@ makes = cars_dataframe.make.unique()
 aspirations = cars_dataframe.aspiration.unique()
 
 # Output
+
 # Header info
 print("DATA-51100, SUMMER 2020")
 print("Christian Nelson")
 print("PROGRAMMING ASSIGNMENT #4\n")
 
-# Iterate over each aspiration calculate cond prob of each make
+# Iterate over each aspiration calculate conditional probability of each make
 for x in makes:
     for y in aspirations:
         conditional_probability = compute_conditional_probability(x,y)
         # Print conditional probabilities to the screen
         print(fm1.format(y,x,z=conditional_probability))
 
-# Print empty  line
+# Print empty line to match sample output and clean view
 print('')
 
 # Iterate over each make calculate prob of each make
