@@ -6,7 +6,7 @@
 
 ### Install matplot in VSC: 
 ```
-m pip install -U matplotlib
+python -m pip install -U matplotlib
 ```
 
 ### Put run and imports at the top of file
