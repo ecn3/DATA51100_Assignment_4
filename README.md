@@ -3,12 +3,13 @@
 ## How to run plots in VSC
 
 [Download VSC matplot add-on](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-install matplot in VSC: 
+
+### Install matplot in VSC: 
 ```
 m pip install -U matplotlib
 ```
 
-Put run and imports at the top of file
+### Put run and imports at the top of file
 ``` 
 #%%
 import matplotlib.pyplot as plt
